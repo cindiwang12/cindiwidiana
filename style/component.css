@@ -1,0 +1,246 @@
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.4s ease;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Navbar saat scroll */
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #5a3e36;
+}
+
+/* MENU */
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-menu a {
+    padding:5px 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+}
+
+/* Underline animasi */
+
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #c06c84;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-menu.active{
+    display:flex;
+    }
+    
+/* AUTH BUTTON */
+
+.auth {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-outline {
+    padding: 6px 15px;
+    border: 1px solid #c06c84;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #c06c84;
+}
+
+.btn-primary {
+    padding: 6px 15px;
+    background-color: #c06c84;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-outline:hover{
+    background:#c06c84;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#a0526d;
+}
+
+/* HAMBURGER */
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #c06c84;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2000;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+/* SECTION ORDER */
+
+.order-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px 80px; /* tambah jarak atas */
+}
+
+.order-card {
+    background: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.order-card h2 {
+    text-align: center;
+    color: #c06c84;
+    margin-bottom: 30px;
+}
+
+.order-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.order-card input,
+.order-card select,
+.order-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.order-card input:focus,
+.order-card select:focus,
+.order-card textarea:focus {
+    border-color: #c06c84;
+    box-shadow: 0 0 8px rgba(192,108,132,0.3);
+}
+
+.order-card button {
+    width: 100%;
+    padding: 12px;
+    background-color: #c06c84;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.order-card button:hover {
+    background-color: #a0526d;
+    transform: scale(1.03);
+}
+
+/* ========================= */
+/* MOBILE NAVBAR FIX */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 5%;
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        gap: 15px;
+        width: 180px;
+        transition: 0.3s ease;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;   /* ← INI WAJIB */
+    }
+
+    .auth {
+        display: none;    /* optional biar rapi */
+    }
+}
+
+/* default tampil (untuk HP) */
+.hide-desktop{
+    display: inline-block;
+}
+
+/* jika layar laptop / desktop */
+@media (min-width: 768px){
+    .hide-desktop{
+        display: none;
+    }
+}
+
+/* default tampil (mobile) */
+.divider{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* jika layar desktop */
+@media (min-width:768px){
+    .divider{
+        display: none;
+    }
+}

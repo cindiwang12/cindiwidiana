@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style/reset.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/component.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">🌙 LUNARA BAKES</div>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="/">Home</a>
+            <a href="/pages/profile">Profile</a>
+            <a href="/pages/kontak">Kontak</a>
+            <a href="/pages/menu">Menu</a>
+            <a href="/pages/order">Order</a>
+
+            <span class="divider">|</span>
+            <a href="#" class="btn-login hide-desktop">Login</a>
+            <a href="#" class="btn-signup hide-desktop">Sign Up</a>
+            </nav>
+
+            <div class="auth">
+                <a href="#" class="btn-outline">Login</a>
+                <a href="#" class="btn-primary">Sign Up</a>
+            </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger"  id="hamburger">☰</div>
+        
+    </header>
+    <main>
+        <section class="section-kontak"></section>
+        <h2 class="judul-kontak">Kontak saya</h2>
+
+        <div class="kontak-container">
+            <div class="kontak-box">
+                <h3>Kontak Admin 1</h3>
+                <p>0812-xxxx-xxxx</p>
+                <a href="#" class="btn-kontak">Hubungi Sekarang</a>
+
+            <div class="kotak-box">
+                <h3>Kontak Admin 2</h3>
+                <p>@lunarabakes</p>
+                <a href="#" class="btn-kontak">Kunjungi Instagram</a>
+            </div>
+        </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>© 2026 Lunara Bakes | Selamat Idul Fitri 1447 H</p>
+        <ul>
+            <li>
+                <a href="https://web.whatsapp.com/" target="_blank">Hubungi saya melalui whatsapp</a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/" target="_blank">Kunjungi instagram saya</a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("navMenu");
+        
+            if (hamburger) {
+                hamburger.addEventListener("click", function () {
+                    navMenu.classList.toggle("active");
+                });
+            }
+        
+            window.addEventListener("scroll", function () {
+                const navbar = document.querySelector(".navbar");
+                navbar.classList.toggle("scrolled", window.scrollY > 50);
+            });
+        
+        });
+        </script>
+</body>
+
+</html>
