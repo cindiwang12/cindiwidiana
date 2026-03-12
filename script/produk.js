@@ -1,41 +1,63 @@
-// step 1 : persiapkan Data Produk 
+// STEP 1 : DATA PRODUK
 const dataBarang = [
     {
-        nama produk: "Chocolate Cookies",
-        ukuran: "300 gr"
-        harga: 38000,
+    nama: "Chocolate Cookies",
+    ukuran: "300 gr",
+    harga: 38000
     },
     {
-        nama produk: "Nastar Premium",
-        ukuran: "300 gr"
-        harga: 35000,
+    nama: "Nastar Premium",
+    ukuran: "300 gr",
+    harga: 35000
     },
     {
-        nama produk: "Putri Salju",
-        ukuran: "300 gr"
-        harga: 33000,
+    nama: "Putri Salju",
+    ukuran: "300 gr",
+    harga: 33000
     },
     {
-        nama produk: "Kue Kacang",
-        ukuran: "300 gr"
-        harga: 28000,
+    nama: "Kue Kacang",
+    ukuran: "300 gr",
+    harga: 28000
     }
-];
-
-// step 2 : persiapkan wadahnya
-const container = document.getElementById("tabel-data");
-
-// step 3 : mapping dan render data
-const dataReal = dataBarang.map((barang) => {
+    ];
+    
+    
+    // STEP 2 : AMBIL CONTAINER
+    const container = document.getElementById("tabel-data");
+    const totalHargaElement = document.getElementById("total-harga");
+    
+    
+    // cek supaya tidak error di halaman lain
+    if(container){
+    
+    // STEP 3 : RENDER DATA
+    const tabelData = dataBarang.map((barang) => {
+    
     return `
     <tr>
-    <td>${barang.nama produk}</td>
+    <td>${barang.nama}</td>
     <td>${barang.ukuran}</td>
-    <td>${barang.harga}</td>
+    <td>Rp ${barang.harga.toLocaleString("id-ID")}</td>
     </tr>
-    `
-
-}).join("");
-
-// step 4 : isikan data ke dalam wadah
-tabelData.innerHTML = dataReal;
+    `;
+    
+    }).join("");
+    
+    
+    // tampilkan ke tabel
+    container.innerHTML = tabelData;
+    
+    
+    // STEP 4 : HITUNG TOTAL
+    const totalHarga = dataBarang.reduce((total, barang) => {
+    return total + barang.harga;
+    }, 0);
+    
+    
+    // tampilkan total
+    if(totalHargaElement){
+    totalHargaElement.innerHTML = "Rp " + totalHarga.toLocaleString("id-ID");
+    }
+    
+    }

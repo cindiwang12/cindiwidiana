@@ -186,6 +186,61 @@
     transform: scale(1.03);
 }
 
+/* FOOTER */
+
+.footer{
+    background-color:#f8e6e8;
+    margin-top:60px;
+    padding-top:40px;
+    font-family: 'Segoe UI', sans-serif;
+    }
+    
+    .footer-container{
+    width:80%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+    }
+    
+    .footer h3{
+    color:#a0526d;
+    margin-bottom:10px;
+    }
+    
+    .footer h4{
+    margin-bottom:10px;
+    color:#444;
+    }
+    
+    .footer p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:6px;
+    }
+    
+    .footer a{
+    color:#c06c84;
+    text-decoration:none;
+    display:block;
+    margin-bottom:6px;
+    transition:0.3s;
+    }
+    
+    .footer a:hover{
+    color:#a0526d;
+    text-decoration:underline;
+    }
+    
+    .footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    padding:15px;
+    background-color:#f1c7ca;
+    font-size:14px;
+    }
+
 /* ========================= */
 /* MOBILE NAVBAR FIX */
 /* ========================= */
@@ -244,3 +299,31 @@
         display: none;
     }
 }
+
+/* RESPONSIVE FOOTER MOBILE */
+
+@media (max-width: 768px){
+
+    .footer-container{
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    }
+    
+    .footer-brand,
+    .footer-contact,
+    .footer-social{
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    
+    .footer a{
+    display: inline-block;
+    margin: 5px;
+    }
+    
+    .footer-bottom{
+    font-size: 13px;
+    }
+    
+    }
