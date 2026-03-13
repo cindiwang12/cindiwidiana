@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style/reset.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/component.css">
+</head>
+
+<script>
+    window.addEventListener("scroll", function() {
+        const navbar = document.querySelector(".navbar");
+
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+</script>
+
+<body>
+    <header class="navbar">
+        <div class="logo">🌙 LUNARA BAKES</div>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="/">Home</a>
+            <a href="pages/profile">Profile</a>
+            <a href="pages/kontak">Kontak</a>
+            <a href="pages/menu">Menu</a>
+            <a href="pages/order">Order</a>
+            </nav>
+           
+            <div class="auth">
+                <a href="#" class="btn-outline">Login</a>
+                <a href="#" class="btn-primary">Sign Up</a>
+            </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" >&#9776</div>
+
+    </header>
+
+    <main>
+
+        <section class="hero-modern">
+            <div class="hero-images">
+                <img src="../../public/profile/Me 2026-02-26 at 15.29.43.jpeg" alt="Profile Lunara">
+            </div>
+    
+            <div class="hero-text">
+                <h2>Tentang Lunara Bakes</h2>
+                <p>Lunara Bakes adalah UMKM homemade bakery yang menghadirkan kue lebaran dengan kualitas premium dan rasa autentik. Setiap produk dibuat dengan bahan pilihan dan penuh ketulusan.</p>
+                <p>Kami percaya bahwa setiap gigitan membawa kebahagiaan dan mempererat silaturahmi di hari yang fitri.</p>
+                
+                <p class="subtitle">Keunggulan Lunara Bakes</p>
+                <ul>
+                    <li>Bahan Premium & Berkualitas</li>
+                    <li>Rasa Homemade yang Autentik</li>
+                    <li>Kemasan Elegan & Cocok untuk Hampers</li>
+                    <li>Dibuat Fresh Setiap Hari</li>
+                </ul>
+            </div>
+    
+        </section>
+    
+    </main>
+
+    <footer>
+        <p>© 2026 Lunara Bakes | Selamat Idul Fitri 1447 H</p>
+        <ul>
+            <li>
+                <a href="https://web.whatsapp.com/" target="_blank">Hubungi saya melalui whatsapp</a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/" target="_blank">Kunjungi instagram saya</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
