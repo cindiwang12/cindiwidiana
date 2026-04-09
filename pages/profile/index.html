@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style/reset.css">
     <link rel="stylesheet" href="/style/main.css">
     <link rel="stylesheet" href="/style/component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -62,30 +63,44 @@
     </main>
 
     <footer class="footer">
-    
         <div class="footer-container">
         
+        <!-- BRAND -->
         <div class="footer-brand">
         <h3>🌙 LUNARA BAKES</h3>
         <p>Kue kering premium untuk momen spesial keluarga Anda.</p>
         </div>
         
-        <div class="footer-contact">
-        <h4>Kontak Kami</h4>
-        <p>📱 WhatsApp : <a href="https://wa.me/6283149466923">+62 831-4946-6923</a></p>
-        <p>📧 Email : 
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lunara.bakes@gmail.com" target="_blank">
-            lunara.bakes@gmail.com
+         <!-- KONTAK -->
+         <div class="footer-contact">
+            <h4>Kontak Kami</h4>
+            
+            <a href="https://wa.me/6283149466923?text=Halo%20saya%20ingin%20pesan%20Lunara%20Bakes" target="_blank" class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="label">WhatsApp :</span>
+            <span class="value">+62 831-4946-6923</span>
             </a>
-            </p>
-        <p>📍 Bojonegoro, Jawa Timur</p>
-        </div>
+            
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lunarabakes5@gmail.com" target="_blank" class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="label">Email :</span>
+            <span class="value">lunarabakes5@gmail.com</span>
+            </a>
+            
+            <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="label">Lokasi :</span>
+            <span class="value">Bojonegoro, Jawa Timur</span>
+            </div>
+            
+            </div>
         
+        <!-- SOSIAL -->
         <div class="footer-social">
         <h4>Follow Us</h4>
-        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-        <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/lunarabakes1/" target="_blank">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
         </div>
         
         </div>
@@ -96,25 +111,8 @@
         
         </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        
-            const hamburger = document.getElementById("hamburger");
-            const navMenu = document.getElementById("navMenu");
-        
-            if (hamburger) {
-                hamburger.addEventListener("click", function () {
-                    navMenu.classList.toggle("active");
-                });
-            }
-        
-            window.addEventListener("scroll", function () {
-                const navbar = document.querySelector(".navbar");
-                navbar.classList.toggle("scrolled", window.scrollY > 50);
-            });
-        
-        });
-        </script>
+        <script src="/script/function.js"></script>
+        <script src="/script/produk.js"></script>
 </body>
 
 </html>

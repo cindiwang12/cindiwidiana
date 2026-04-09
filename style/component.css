@@ -196,22 +196,17 @@
     }
     
     .footer-container{
-    width:80%;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:30px;
-    }
+        width:80%;
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        gap:40px;
+        }
     
     .footer h3{
     color:#a0526d;
     margin-bottom:10px;
-    }
-    
-    .footer h4{
-    margin-bottom:10px;
-    color:#444;
     }
     
     .footer p{
@@ -241,6 +236,47 @@
     font-size:14px;
     }
 
+    .footer-contact h4{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .footer-contact{
+        text-align:left;
+        }
+        
+        /* Item kontak */
+        .contact-item{
+        display:grid;
+        grid-template-columns: 25px auto 1fr;
+        align-items:center;
+        gap:8px;
+        margin-bottom:12px;
+        font-size:14px;
+        color:#555;
+        }
+        
+        /* Icon */
+        .contact-item i{
+        color:#c06c84;
+        font-size:16px;
+        }
+        
+        /* Label kiri */
+        .label{
+        font-weight:600;
+        }
+        
+        /* Value kanan */
+        .value{
+        color:#333;
+        }
+        
+        /* Hover */
+        .contact-item:hover{
+        color:#c06c84;
+        }
+
 /* ========================= */
 /* MOBILE NAVBAR FIX */
 /* ========================= */
@@ -267,11 +303,11 @@
     }
 
     .hamburger {
-        display: block;   /* ← INI WAJIB */
+        display: block;   
     }
 
     .auth {
-        display: none;    /* optional biar rapi */
+        display: none;   
     }
 }
 
@@ -302,28 +338,55 @@
 
 /* RESPONSIVE FOOTER MOBILE */
 
-@media (max-width: 768px){
+@media (max-width:768px){
 
+    /* Container footer jadi vertikal */
     .footer-container{
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
     }
     
-    .footer-brand,
-    .footer-contact,
-    .footer-social{
-    width: 100%;
-    margin-bottom: 20px;
+    /* Judul tetap di tengah */
+    .footer-contact h4{
+    text-align:center;
+    margin-bottom:15px;
     }
     
-    .footer a{
-    display: inline-block;
-    margin: 5px;
+    /* Kontak jadi center */
+    .footer-contact{
+    text-align:center;
     }
     
-    .footer-bottom{
-    font-size: 13px;
+    /* Ubah layout grid jadi vertikal */
+    .contact-item{
+    grid-template-columns: 1fr;
+    justify-items:center;
+    text-align:center;
+    gap:5px;
+    }
+    
+    /* Icon lebih besar biar jelas */
+    .contact-item i{
+    font-size:18px;
+    margin-bottom:5px;
+    }
+    
+    /* Label */
+    .label{
+    font-weight:600;
+    }
+    
+    /* Value */
+    .value{
+    font-size:13px;
+    color:#555;
+    }
+    
+    /* Social biar rapi */
+    .footer-social a{
+    display:inline-block;
+    margin:5px 8px;
     }
     
     }
