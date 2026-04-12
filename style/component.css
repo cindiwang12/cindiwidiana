@@ -333,7 +333,7 @@
         top: 80px;
         right: 5%;
         background: white;
-        padding: 20px;
+        padding: 10px 5%;
         border-radius: 15px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         gap: 15px;
@@ -398,6 +398,82 @@
     .slide-content p{
     font-size: 14px;
     }
+
+    @media (max-width: 768px){
+
+        /* ========================= */
+        /* CAROUSEL FIX MOBILE */
+        /* ========================= */
+        
+        /* Biar tidak kepotong */
+        .premium-carousel{
+        width: 100%;
+        overflow: hidden;
+        }
+        
+        /* Track tetap horizontal */
+        .premium-track{
+        display: flex;
+        }
+        
+        /* 1 slide 1 layar */
+        .premium-item{
+        min-width: 100%;
+        }
+        
+        /* Tinggi gambar diperkecil */
+        .premium-item img{
+        height: 220px;
+        }
+        
+        /* ========================= */
+        /* TEXT OVERLAY TETAP ADA */
+        /* tapi lebih kecil */
+        /* ========================= */
+        
+        .content{
+        padding: 12px 15px;
+        max-width: 70%;
+        backdrop-filter: blur(4px);
+        }
+        
+        /* posisi tetap kiri kanan */
+        .content.left{
+        left: 3%;
+        }
+        
+        .content.right{
+        right: 3%;
+        }
+        
+        /* ukuran teks diperkecil */
+        .content h3{
+        font-size: 16px;
+        }
+        
+        .content p{
+        font-size: 13px;
+        }
+        
+        /* ========================= */
+        /* NAVBAR MOBILE */
+        /* ========================= */
+        
+        .logo-icon{
+        font-size: 22px;
+        padding: 5px;
+        }
+        
+        .brand-main{
+        font-size: 14px;
+        }
+        
+        .brand-sub{
+        font-size: 11px;
+        }
+        
+        
+        }
     
 
 /* RESPONSIVE FOOTER MOBILE */
