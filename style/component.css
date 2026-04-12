@@ -36,45 +36,45 @@
     font-weight: bold;
     color: #5a3e36;
 }
-    
-    /* ICON BULAN */
-    .logo-icon{
+
+/* ICON BULAN */
+.logo-icon {
     font-size: 26px;
     background: radial-gradient(circle, #ffd1dc, #c06c84);
     padding: 6px;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(192,108,132,0.5);
+    box-shadow: 0 0 15px rgba(192, 108, 132, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.3s;
-    }
+}
 
-    .logo:hover .logo-icon{
-        transform: rotate(10deg) scale(1.1);
-        }
-    
-    /* TEXT */
-    .logo-text{
+.logo:hover .logo-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* TEXT */
+.logo-text {
     display: flex;
     flex-direction: column;
     line-height: 1;
-    }
-    
-    .brand-main{
+}
+
+.brand-main {
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 2px;
     color: #5a3e36;
-    }
-    
-    .brand-sub{
+}
+
+.brand-sub {
     font-size: 15px;
     color: #c06c84;
     letter-spacing: 1px;
     margin-top: 1px;
     opacity: 0.8;
-    }
+}
 
 /* MENU */
 
@@ -386,95 +386,95 @@
 }
 
 
-    .hero-slider{
+.hero-slider {
     /* height: 70vh; */
     touch-action: pan-y;
-    }
-    
-    .slide-content h2{
+}
+
+.slide-content h2 {
     font-size: 24px;
-    }
-    
-    .slide-content p{
+}
+
+.slide-content p {
     font-size: 14px;
-    }
+}
 
-    @media (max-width: 768px){
+@media (max-width: 768px) {
 
-        /* ========================= */
-        /* CAROUSEL FIX MOBILE */
-        /* ========================= */
-        
-        /* Biar tidak kepotong */
-        .premium-carousel{
+    /* ========================= */
+    /* CAROUSEL FIX MOBILE */
+    /* ========================= */
+
+    /* Biar tidak kepotong */
+    .premium-carousel {
         width: 100%;
         overflow: hidden;
-        }
-        
-        /* Track tetap horizontal */
-        .premium-track{
+    }
+
+    /* Track tetap horizontal */
+    .premium-track {
         display: flex;
-        }
-        
-        /* 1 slide 1 layar */
-        .premium-item{
+    }
+
+    /* 1 slide 1 layar */
+    .premium-item {
         min-width: 100%;
-        }
-        
-        /* Tinggi gambar diperkecil */
-        .premium-item img{
+    }
+
+    /* Tinggi gambar diperkecil */
+    .premium-item img {
         height: 220px;
-        }
-        
-        /* ========================= */
-        /* TEXT OVERLAY TETAP ADA */
-        /* tapi lebih kecil */
-        /* ========================= */
-        
-        .content{
+    }
+
+    /* ========================= */
+    /* TEXT OVERLAY TETAP ADA */
+    /* tapi lebih kecil */
+    /* ========================= */
+
+    .content {
         padding: 12px 15px;
         max-width: 70%;
         backdrop-filter: blur(4px);
-        }
-        
-        /* posisi tetap kiri kanan */
-        .content.left{
+    }
+
+    /* posisi tetap kiri kanan */
+    .content.left {
         left: 3%;
-        }
-        
-        .content.right{
+    }
+
+    .content.right {
         right: 3%;
-        }
-        
-        /* ukuran teks diperkecil */
-        .content h3{
+    }
+
+    /* ukuran teks diperkecil */
+    .content h3 {
         font-size: 16px;
-        }
-        
-        .content p{
+    }
+
+    .content p {
         font-size: 13px;
-        }
-        
-        /* ========================= */
-        /* NAVBAR MOBILE */
-        /* ========================= */
-        
-        .logo-icon{
+    }
+
+    /* ========================= */
+    /* NAVBAR MOBILE */
+    /* ========================= */
+
+    .logo-icon {
         font-size: 22px;
         padding: 5px;
-        }
-        
-        .brand-main{
+    }
+
+    .brand-main {
         font-size: 14px;
-        }
-        
-        .brand-sub{
+    }
+
+    .brand-sub {
         font-size: 11px;
-        }
-        
-        
-        }
-    
+    }
+
+
+}
+
 
 /* RESPONSIVE FOOTER MOBILE */
 
