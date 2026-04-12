@@ -1,10 +1,15 @@
+@font-face {
+    font-family: ;
+}
+
 /* GENERAL */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8d7da;
     text-align: center;
     color: #5a3e36;
+    background: linear-gradient(135deg, #fff1f3, #fde2e4);
 }
 
 /* HERO HOME*/
@@ -50,8 +55,13 @@ body {
 }
 
 @keyframes zoomSlow {
-    from {transform: scale(1);}
-    to {transform: scale(1.05);}
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
 }
 
 .produk p {
@@ -68,6 +78,13 @@ h2 {
     font-weight: bold;
     color: #8b4c5c;
     margin-top: 40px;
+    margin-bottom: 3px;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8b4c5c;
     margin-bottom: 15px;
 }
 
@@ -113,7 +130,62 @@ h2 {
     color: white;
 }
 
-/* PROFILE */
+.premium-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.premium-track {
+    display: flex;
+    transition: transform 0.7s ease;
+}
+
+.premium-item {
+    min-width: 100%;
+    position: relative;
+}
+
+/* GAMBAR FULL WIDTH */
+.premium-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* OVERLAY TEXT */
+.content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+    max-width: 300px;
+    backdrop-filter: blur(5px);
+}
+
+/* POSISI KIRI */
+.content.left {
+    left: 5%;
+}
+
+/* POSISI KANAN */
+.content.right {
+    right: 5%;
+}
+
+/* TEXT */
+.content h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.content p {
+    font-size: 14px;
+}
+
+/* PAGES PROFILE */
 
 .hero-modern {
     display: flex;
@@ -122,6 +194,7 @@ h2 {
     gap: 80px;
     padding: 60px 10%;
 }
+
 .hero-images,
 .profile-text {
     flex: 1 1 200px;
@@ -136,7 +209,7 @@ h2 {
     width: 100%;
     max-width: 400px;
     border-radius: 25px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
     transition: 0.4s;
 }
 
@@ -153,7 +226,8 @@ h2 {
 
 .hero-modern {
     display: flex;
-    align-items: flex-start; /* ini bikin teks naik */
+    align-items: flex-start;
+    /* ini bikin teks naik */
     justify-content: center;
     gap: 60px;
     padding: 100px 10%;
@@ -164,7 +238,7 @@ h2 {
     background: rgba(255, 255, 255, 0.6);
     padding: 40px;
     border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     backdrop-filter: blur(10px);
     max-width: 550px;
 }
@@ -178,6 +252,7 @@ h2 {
     margin-top: 10px;
     border-radius: 5px;
 }
+
 .subtitle {
     font-size: 20px;
     color: #8b4c5c;
@@ -213,7 +288,8 @@ h2 {
 
 .judul-kontak {
     color: #8b4c5c;
-    margin-top: 80px; /* tambah jarak ke atas */
+    margin-top: 80px;
+    /* tambah jarak ke atas */
     margin-bottom: 15px;
 }
 
@@ -229,7 +305,7 @@ h2 {
     padding: 25px;
     width: 250px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0,1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0, 1);
 }
 
 .btn-kontak {
@@ -252,69 +328,160 @@ h2 {
 /* SECTION MENU */
 
 /* PAKET HAMPERS */
-  
-  .hampers {
+
+
+/* BADGE PROMO */
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff6b81;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.hampers {
     text-align: center;
     padding: 40px 20px;
-  }
-  
-  .hampers h2 {
+}
+
+.hampers h2 {
     margin-bottom: 30px;
     color: #8b4c5c;
-  }
-  
-  .hampers-container {
+}
+
+.hampers-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     max-width: 900px;
     margin: auto;
-  }
-  
-  .card {
-    background: #fff;
-    padding: 25px 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  }
-  
-  .card h3 {
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
     margin-bottom: 10px;
     color: #5c2e35;
-  }
-  
-  .card p {
+}
+
+.card p {
     font-size: 14px;
     margin-bottom: 15px;
     color: #555;
-  }
-  
-  .price {
+}
+
+.price {
     display: block;
     font-weight: bold;
     color: #b05a6b;
     margin-bottom: 15px;
-  }
-  
-  .card button {
-    background: #b05a6b;
+}
+
+.card button {
+    background: linear-gradient(135deg, #c06c84, #f67280);
     color: white;
     border: none;
-    padding: 8px 18px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
     cursor: pointer;
     transition: 0.3s;
-  }
-  
-  .card button:hover {
-    background: #8b4c5c;
-  }
+}
+
+.card button:hover {
+    transform: scale(1.05);
+}
+
+/* SECTION */
+.galeri {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.galeri h2 {
+    margin-bottom: 30px;
+    color: #8b4c5c;
+}
+
+/* GRID */
+.galeri-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* ITEM */
+.galeri-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* IMAGE */
+.galeri-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+/* OVERLAY */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* HOVER EFFECT */
+.galeri-item:hover img {
+    transform: scale(1.1);
+}
+
+.galeri-item:hover .overlay {
+    opacity: 1;
+}
+
+/* BUTTON */
+.overlay button {
+    margin-top: 10px;
+    background: #c06c84;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.overlay button:hover {
+    background: #a0526d;
+}
 
 /* TABLE */
 
@@ -323,8 +490,8 @@ table {
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 th {
@@ -352,5 +519,5 @@ footer {
     background-color: white;
     padding: 25px;
     margin-top: 60px;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }

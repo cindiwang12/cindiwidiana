@@ -1,150 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/style/reset.css">
-    <link rel="stylesheet" href="/style/main.css">
-    <link rel="stylesheet" href="/style/component.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/style/reset.css">
+  <link rel="stylesheet" href="/style/main.css">
+  <link rel="stylesheet" href="/style/component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
-    <header class="navbar">
-        <div class="logo">🌙 LUNARA BAKES</div>
+  <header class="navbar">
+    <div class="logo">
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="/">Home</a>
-            <a href="/pages/profile">Profile</a>
-            <a href="/pages/kontak">Kontak</a>
-            <a href="/pages/menu">Menu</a>
-            <a href="/pages/order">Order</a>
+        <div class="logo-icon">🌙</div>
+    
+        <div class="logo-text">
+            <span class="brand-main">LUNARA</span>
+            <span class="brand-sub">Bakes</span>
+        </div>
+    
+    </div>
 
-            <span class="divider">|</span>
-            <a href="#" class="btn-login hide-desktop">Login</a>
-            <a href="#" class="btn-signup hide-desktop">Sign Up</a>
-            </nav>
+    <nav class="nav-menu" id="navMenu">
+      <a href="/">Home</a>
+      <a href="/pages/profile">Profile</a>
+      <a href="/pages/kontak">Kontak</a>
+      <a href="/pages/menu">Menu</a>
+      <a href="/pages/order">Order</a>
 
-            <div class="auth">
-                <a href="#" class="btn-outline">Login</a>
-                <a href="#" class="btn-primary">Sign Up</a>
+      <span class="divider">|</span>
+      <a href="#" class="btn-login hide-desktop">Login</a>
+      <a href="#" class="btn-signup hide-desktop">Sign Up</a>
+    </nav>
+
+    <div class="auth">
+      <a href="#" class="btn-outline">Login</a>
+      <a href="#" class="btn-primary">Sign Up</a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">☰</div>
+
+  </header>
+
+  <main>
+    <section class="galeri">
+      <h2>Paket Hampers Lunara Bakes</h2>
+
+      <div class="galeri-container">
+
+        <div class="galeri-item">
+          <img src="/public/produk/moon mini.png" alt="Hampers">
+          <div class="overlay">
+              <h3>🌙 Moon Mini</h3>
+              <p>Nastar + Kue Kacang</p>
+              <p>Rp 100.000</p>
+              <button class="btn-pesan" data-produk="Paket Moon Mini" data-harga="100000">
+                  Pesan
+              </button>
+          </div>
+      </div>
+
+      <div class="galeri-item">
+        <img src="/public/produk/golden-eid.png" alt="Hampers">
+        <div class="overlay">
+            <h3>✨ Golden Eid</h3>
+            <p>Nastar + Putri Salju + Cookies</p>
+            <p>Rp 150.000</p>
+            <button class="btn-pesan" data-produk="Paket Golden Eid" data-harga="150000">
+                Pesan
+            </button>
+        </div>
+    </div>
+
+    <div class="galeri-item">
+      <img src="/public/produk/royal-lunara.png" alt="Hampers">
+      <div class="overlay">
+          <h3>👑 Royal Lunara</h3>
+          <p>Nastar + Kastengel + Putri Salju + Cookies</p>
+          <p>Rp 200.000</p>
+          <button class="btn-pesan" data-produk="Paket Royal Lunara" data-harga="200000">
+              Pesan
+          </button>
+      </div>
+  </div>
+
+      </div>
+    </section>
+
+      <section class="galeri">
+        <h2>Galeri Produk </h2>
+    
+        <div class="galeri-container">
+    
+            <div class="galeri-item">
+                <img src="/public/produk/nastar.png" alt="Nastar">
+                <div class="overlay">
+                    <h3>Nastar Premium</h3>
+                    <p>Rp 55.000</p>
+                    <button class="btn-pesan" data-produk="Nastar Premium" data-harga="55000">
+                        Pesan
+                    </button>
+                </div>
+            </div>
+    
+            <div class="galeri-item">
+                <img src="/public/produk/choco-cookies.png" alt="Cookies">
+                <div class="overlay">
+                    <h3>Chocolate Cookies</h3>
+                    <p>Rp 55.000</p>
+                    <button class="btn-pesan" data-produk="Chocolate Cookies" data-harga="55000">
+                        Pesan
+                    </button>
+                </div>
+            </div>
+    
+            <div class="galeri-item">
+                <img src="/public/produk/kue-kacang.png" alt="Kue Kacang">
+                <div class="overlay">
+                    <h3>Kue Kacang</h3>
+                    <p>Rp 48.000</p>
+                    <button class="btn-pesan" data-produk="Kue Kacang" data-harga="48000">
+                        Pesan
+                    </button>
+                </div>
             </div>
 
-        <!-- Hamburger -->
-        <div class="hamburger"  id="hamburger">☰</div>
-        
-    </header>
+            <div class="galeri-item">
+              <img src="/public/produk/putri-salju.png" alt="Putri Salju">
+              <div class="overlay">
+                  <h3>Putri Salju</h3>
+                  <p>Rp 50.000</p>
+                  <button class="btn-pesan" data-produk="Putri Salju" data-harga="50000">
+                      Pesan
+                  </button>
+              </div>
+          </div>
 
-    <main>
-        <section class="hampers">
-            <h2>Paket Hampers Lunara Bakes</h2>
-          
-            <div class="hampers-container">
-              
-              <div class="card">
-                <h3>Paket Moon Mini</h3>
-                <p>Nastar 300 gr + Kue Kacang 300 gr</p>
-                <span class="price">Rp 60.000</span>
-                <button class="btn-pesan" data-produk="Paket Moon Mini">Pesan Sekarang</button>
-              </div>
-          
-              <div class="card">
-                <h3>Paket Golden Eid</h3>
-                <p>Nastar + Putri Salju + Chocolate Cookies (300 gr)</p>
-                <span class="price">Rp 95.000</span>
-                <button class="btn-pesan" data-produk="Paket Golden Eid">Pesan Sekarang</button>
-              </div>
-          
-              <div class="card">
-                <h3>Royal Lunara</h3>
-                <p>4 Varian Premium Cookies (300 gr)</p>
-                <span class="price">Rp 150.000</span>
-                <button class="btn-pesan" data-produk="Royal Lunara">Pesan Sekarang</button>
-              </div>
-          
+          <div class="galeri-item">
+            <img src="/public/produk/cookies.png" alt="Cookies">
+            <div class="overlay">
+                <h3>Cookies</h3>
+                <p>Rp 50.000</p>
+                <button class="btn-pesan" data-produk="Cookies" data-harga="50000">
+                    Pesan
+                </button>
             </div>
+        </div>
+
+        <div class="galeri-item">
+          <img src="/public/produk/kastengel.png" alt="Cookies">
+          <div class="overlay">
+              <h3>Kastangel</h3>
+              <p>Rp 60.000</p>
+              <button class="btn-pesan" data-produk="Kastangel" data-harga="60000">
+                  Pesan
+              </button>
+          </div>
+      </div>
 
         
-            <h2>Daftar Produk</h2>
+    
+        </div>
+    </section>
 
-            <table border="1">
-            <thead>
-            <tr>
+      <!-- <h2>Daftar Produk</h2>
+
+      <table border="1">
+        <thead>
+          <tr>
             <th>Nama Produk</th>
             <th>Ukuran</th>
             <th>Harga</th>
-            </tr>
-            </thead>
-            
-            <tbody id="tabel-data">
-            <!-- Data dari JavaScript -->
-            </tbody>
-            
-            <tfoot>
-            <tr>
+          </tr>
+        </thead>
+
+        <tbody id="tabel-data">
+          Data dari JavaScript 
+        </tbody>
+
+        <tfoot>
+          <tr>
             <td colspan="2"><b>Total Nilai Produk</b></td>
             <td id="total-harga"></td>
-            </tr>
-            </tfoot>
-            </table>
-    </section>
- 
-    </main>
+          </tr>
+        </tfoot>
+      </table>
+    </section> -->
 
-    <footer class="footer">
-        <div class="footer-container">
-        
-        <!-- BRAND -->
-        <div class="footer-brand">
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- BRAND -->
+      <div class="footer-brand">
         <h3>🌙 LUNARA BAKES</h3>
         <p>Kue kering premium untuk momen spesial keluarga Anda.</p>
+      </div>
+
+      <!-- KONTAK -->
+      <div class="footer-contact">
+        <h4>Kontak Kami</h4>
+
+        <a href="https://wa.me/6283149466923?text=Halo%20saya%20ingin%20pesan%20Lunara%20Bakes" target="_blank"
+          class="contact-item">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span class="label">WhatsApp :</span>
+          <span class="value">+62 831-4946-6923</span>
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lunarabakes5@gmail.com" target="_blank"
+          class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="label">Email :</span>
+          <span class="value">lunarabakes5@gmail.com</span>
+        </a>
+
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span class="label">Lokasi :</span>
+          <span class="value">Bojonegoro, Jawa Timur</span>
         </div>
-        
-         <!-- KONTAK -->
-         <div class="footer-contact">
-            <h4>Kontak Kami</h4>
-            
-            <a href="https://wa.me/6283149466923?text=Halo%20saya%20ingin%20pesan%20Lunara%20Bakes" target="_blank" class="contact-item">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span class="label">WhatsApp :</span>
-            <span class="value">+62 831-4946-6923</span>
-            </a>
-            
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lunarabakes5@gmail.com" target="_blank" class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span class="label">Email :</span>
-            <span class="value">lunarabakes5@gmail.com</span>
-            </a>
-            
-            <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span class="label">Lokasi :</span>
-            <span class="value">Bojonegoro, Jawa Timur</span>
-            </div>
-            
-            </div>
-        
-        <!-- SOSIAL -->
-        <div class="footer-social">
+
+      </div>
+
+      <!-- SOSIAL -->
+      <div class="footer-social">
         <h4>Follow Us</h4>
         <a href="https://www.instagram.com/lunarabakes1/" target="_blank">Instagram</a>
         <a href="#">Facebook</a>
         <a href="#">TikTok</a>
-        </div>
-        
-        </div>
-        
-        <div class="footer-bottom">
-        <p>© 2026 Lunara Bakes | Selamat Idul Fitri 1447 H</p>
-        </div>
-        
-        </footer>
+      </div>
 
-<script src="/script/function.js"></script>
-<script src="/script/menu.js"></script>
-<script src="/script/produk.js"></script>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Lunara Bakes | Selamat Idul Fitri 1447 H</p>
+    </div>
+
+  </footer>
+
+  <script src="/script/function.js"></script>
+  <script src="/script/menu.js"></script>
+  <script src="/script/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

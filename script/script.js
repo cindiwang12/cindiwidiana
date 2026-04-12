@@ -1,24 +1,15 @@
-const judul = document.getElementById
-("judulProduk");
-const detail = document.querySelector
-("detailProduk");
-const harga = document.querySelector(".hargaProduct");
+// CHECKOUT WHATSAPP
 
-console.log(judul);
-console.log(detail);
-console.log(harga);
+document.getElementById("checkoutBtn").addEventListener("click", function(){
 
-if (judul) {
-    judul.textContent = "Contoh judul"
-}
-
-if (harga) {
-    harga.textContent = "Rp 99.000"
-}
-
-if (header) {
-    header.innerHTML = `
-    <div>
-    <h1>
-    `
-}
+    let pesan = "Halo Lunara Bakes, saya ingin pesan:%0A";
+    
+    keranjang.forEach(item=>{
+    pesan += `- ${item.nama} (${item.qty})%0A`;
+    });
+    
+    const url = "https://wa.me/6283149466923?text=" + pesan;
+    
+    window.open(url, "_blank");
+    
+    });
