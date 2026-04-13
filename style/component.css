@@ -419,11 +419,19 @@
     /* 1 slide 1 layar */
     .premium-item {
         min-width: 100%;
+        position: relative;
     }
 
     /* Tinggi gambar diperkecil */
     .premium-item img {
         height: 220px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .btn-pesan {
+        position: relative;
+        z-index: 10;
     }
 
     /* ========================= */
@@ -435,6 +443,9 @@
         padding: 12px 15px;
         max-width: 70%;
         backdrop-filter: blur(4px);
+        z-index: 5;
+        pointer-events: none;
+        position: absolute;
     }
 
     /* posisi tetap kiri kanan */
@@ -453,6 +464,10 @@
 
     .content p {
         font-size: 13px;
+    }
+
+    .content button {
+        pointer-events: auto;
     }
 
     /* ========================= */
