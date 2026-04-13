@@ -105,24 +105,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-// KERANJANG
-const list = document.getElementById("listKeranjang");
-const totalText = document.getElementById("totalHarga");
-
-if (list) {
-
-    let total = 0;
-
-    keranjang.forEach(function (item) {
-
-        const li = document.createElement("li");
-        li.textContent = item.nama + " - Rp " + item.harga;
-        list.appendChild(li);
-
-        total += item.harga;
-
-    });
-
-    totalText.textContent = "Total: Rp " + total;
-
-}

@@ -564,3 +564,19 @@
         background-position: 200% 0;
     }
 }
+
+/* MOBILE FLOATING KONTAK */
+@media (max-width:768px){
+
+    .floating-contact{
+    bottom: 15px;
+    right: 15px;
+    }
+    
+    .floating-contact a{
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    }
+    
+    }

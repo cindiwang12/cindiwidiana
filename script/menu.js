@@ -21,7 +21,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
-// button.addEventListener("click", function () {
-//     this.textContent = "✔ Ditambahkan";
-// });
