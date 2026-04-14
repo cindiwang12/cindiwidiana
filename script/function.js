@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const navMenu = document.getElementById("navMenu");
     const promoButton = document.getElementById("togglePromo");
     const promoText = document.getElementById("promoText");
-    const form = document.getElementById("orderForm");
 
     // variabel promo
     let promoVisible = false;
@@ -52,31 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    // MENU PAKET HAMPERS (mengisi produk otomatis di order)
-    const produkSelect = document.querySelector("select");
-    const produkDipilih = localStorage.getItem("produkDipilih");
-
-    if (produkSelect && produkDipilih) {
-        produkSelect.value = produkDipilih;
-    }
-
-
-    // FORM ORDER
-    if (form) {
-
-        form.addEventListener("submit", function (event) {
-
-            event.preventDefault();
-
-            const nama = document.getElementById("nama").value;
-
-            alert("Terima kasih " + nama + ", pesanan kamu berhasil dikirim!");
-
-        });
-
-    }
-
 });
 
 
@@ -105,101 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-// SIGN UP
-const signupForm = document.getElementById("signupForm");
-
-if(signupForm){
-
-signupForm.addEventListener("submit", function(e){
-e.preventDefault();
-
-console.log("SIGNUP DIKLIK");
-
-const nama = document.getElementById("nama").value;
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-let users = JSON.parse(localStorage.getItem("users")) || [];
-
-let existing = users.find(u => u.email === email);
-
-if(existing){
-    alert("Email sudah terdaftar ❌");
-    return;
-}
-
-users.push({nama, email, password});
-
-localStorage.setItem("users", JSON.stringify(users));
-
-alert("Berhasil daftar 🎉");
-
-// ⬇️ WAJIB INI
-window.location.href = "login.html";
-
-});
-
-}
-
-// LOGIN
-const loginForm = document.getElementById("loginForm");
-
-if(loginForm){
-
-loginForm.addEventListener("submit", function(e){
-e.preventDefault();
-
-const email = document.getElementById("loginEmail").value;
-const password = document.getElementById("loginPassword").value;
-
-let users = JSON.parse(localStorage.getItem("users")) || [];
-
-let user = users.find(u => u.email === email && u.password === password);
-
-if(user){
-
-localStorage.setItem("userLogin", JSON.stringify(user));
-
-alert("Login berhasil 🎉");
-
-// ⬇️ INI YANG PENTING
-window.location.href = "../index.html";
-
-}else{
-alert("Email / password salah ❌");
-}
-
-});
-
-}
+// Kode signup dan login dihapus karena sudah ada di auth.js dan halaman masing-masing
+// untuk menghindari konflik event listener
 
 
 
-// TAMPILKAN NAMA DI NAVBAR
-document.addEventListener("DOMContentLoaded", function(){
-
-    const user = JSON.parse(localStorage.getItem("userLogin"));
-    
-    if(user){
-    
-    const auth = document.querySelector(".auth");
-    
-    auth.innerHTML = `
-    <span>👋 ${user.nama}</span>
-    <button onclick="logout()">Logout</button>
-    `;
-    
-    }
-    
-    });
-
-    // LOG OUT
-    function logout(){
-
-        localStorage.removeItem("userLogin");
-        
-        alert("Logout berhasil");
-        
-        location.reload();
-        
-        }
+// Kode tampilkan nama di navbar dihapus karena sudah ada di auth.js

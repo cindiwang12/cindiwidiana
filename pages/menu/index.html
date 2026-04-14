@@ -32,13 +32,19 @@
       <a href="/pages/order">Order</a>
 
       <span class="divider">|</span>
-      <a href="#" class="btn-login hide-desktop">Login</a>
-      <a href="#" class="btn-signup hide-desktop">Sign Up</a>
+      <a href="../login/index.html" class="btn-login hide-desktop">Login</a>
+      <a href="../sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
     </nav>
 
     <div class="auth">
-      <a href="#" class="btn-outline">Login</a>
-      <a href="#" class="btn-primary">Sign Up</a>
+      <a href="/pages/login/index.html" class="btn-outline">Login</a>
+      <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
+      
+      <!-- Cart Icon -->
+      <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count-navbar" class="cart-count">0</span>
+      </a>
     </div>
 
     <!-- Hamburger -->
@@ -58,8 +64,8 @@
             <h3>🌙 Moon Mini</h3>
             <p>Nastar + Kue Kacang</p>
             <p>Rp 100.000</p>
-            <button class="btn-pesan" data-produk="Paket Moon Mini" data-harga="100000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Paket Moon Mini" data-harga="100000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -70,8 +76,8 @@
             <h3>✨ Golden Eid</h3>
             <p>Nastar + Putri Salju + Cookies</p>
             <p>Rp 150.000</p>
-            <button class="btn-pesan" data-produk="Paket Golden Eid" data-harga="150000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Paket Golden Eid" data-harga="150000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -82,8 +88,8 @@
             <h3>👑 Royal Lunara</h3>
             <p>Nastar + Kastengel + Putri Salju + Cookies</p>
             <p>Rp 200.000</p>
-            <button class="btn-pesan" data-produk="Paket Royal Lunara" data-harga="200000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Paket Royal Lunara" data-harga="200000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -101,8 +107,8 @@
           <div class="overlay">
             <h3>Nastar Premium</h3>
             <p>Rp 55.000</p>
-            <button class="btn-pesan" data-produk="Nastar Premium" data-harga="55000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Nastar Premium" data-harga="55000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -112,8 +118,8 @@
           <div class="overlay">
             <h3>Chocolate Cookies</h3>
             <p>Rp 55.000</p>
-            <button class="btn-pesan" data-produk="Chocolate Cookies" data-harga="55000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Chocolate Cookies" data-harga="55000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -123,8 +129,8 @@
           <div class="overlay">
             <h3>Kue Kacang</h3>
             <p>Rp 48.000</p>
-            <button class="btn-pesan" data-produk="Kue Kacang" data-harga="48000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Kue Kacang" data-harga="48000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -134,8 +140,8 @@
           <div class="overlay">
             <h3>Putri Salju</h3>
             <p>Rp 50.000</p>
-            <button class="btn-pesan" data-produk="Putri Salju" data-harga="50000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Putri Salju" data-harga="50000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -145,8 +151,8 @@
           <div class="overlay">
             <h3>Cookies</h3>
             <p>Rp 50.000</p>
-            <button class="btn-pesan" data-produk="Cookies" data-harga="50000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Cookies" data-harga="50000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -156,8 +162,8 @@
           <div class="overlay">
             <h3>Kastengel</h3>
             <p>Rp 60.000</p>
-            <button class="btn-pesan" data-produk="Kastengel" data-harga="60000">
-              Pesan
+            <button class="btn-add-cart" data-produk="Kastengel" data-harga="60000">
+              🛒 Tambahkan ke Keranjang
             </button>
           </div>
         </div>
@@ -222,11 +228,20 @@
 
   </footer>
 
+  <script src="/script/auth.js"></script>
+  <script src="/script/cart.js"></script>
   <script src="/script/function.js"></script>
   <script src="/script/menu.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    // Update auth status setelah script load
+    setTimeout(() => {
+        if (window.authManager) {
+            window.authManager.updateAuthStatus();
+        }
+    }, 100);
   </script>
 
 <div class="floating-contact">

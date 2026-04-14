@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang - LUNARA BAKES</title>
+    <link rel="stylesheet" href="/style/reset.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">🌙</div>
+            <div class="logo-text">
+                <span class="brand-main">LUNARA</span>
+                <span class="brand-sub">Bakes</span>
+            </div>
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="/">Home</a>
+            <a href="/pages/profile">Profile</a>
+            <a href="/pages/menu">Menu</a>
+            <a href="/pages/order">Order</a>
+
+            <span class="divider">|</span>
+            <a href="/pages/login/index.html" class="btn-login hide-desktop">Login</a>
+            <a href="/pages/sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
+        </nav>
+
+        <div class="auth">
+            <a href="/pages/login/index.html" class="btn-outline">Login</a>
+            <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
+            <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count-navbar" class="cart-count">0</span>
+            </a>
+        </div>
+
+        <div class="hamburger" id="hamburger">☰</div>
+    </header>
+
+    <main>
+        <section class="cart-page-section">
+            <div class="cart-page-container">
+                <div class="cart-section">
+                    <h2>🛒 Keranjang Belanja</h2>
+                    <div id="cart-items-container" class="cart-items"></div>
+
+                    <div id="empty-cart-message" class="empty-cart" style="display: none;">
+                        <p>Keranjang Anda masih kosong</p>
+                        <a href="/pages/menu" class="btn-primary">Lihat Menu</a>
+                    </div>
+
+                    <div id="cart-summary" class="cart-summary" style="display: none;">
+                        <div class="summary-row">
+                            <span>Total Item:</span>
+                            <span id="total-items">0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>TOTAL PEMBAYARAN:</span>
+                            <span id="total-price">Rp 0</span>
+                        </div>
+                        <div class="cart-actions">
+                            <button id="clear-cart-btn" class="btn-secondary">Kosongkan Keranjang</button>
+                            <button id="continue-order-btn" class="btn-primary">Lanjut ke Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🌙 LUNARA BAKES</h3>
+                <p>Kue kering premium untuk momen spesial keluarga Anda.</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Kontak Kami</h4>
+
+                <a href="https://wa.me/6283149466923?text=Halo%20saya%20ingin%20pesan%20Lunara%20Bakes" target="_blank"
+                    class="contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span class="label">WhatsApp :</span>
+                    <span class="value">+62 831-4946-6923</span>
+                </a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lunarabakes5@gmail.com" target="_blank"
+                    class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="label">Email :</span>
+                    <span class="value">lunarabakes5@gmail.com</span>
+                </a>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="https://www.instagram.com/lunarabakes1/" target="_blank">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Lunara Bakes | Selamat Idul Fitri 1447 H</p>
+        </div>
+    </footer>
+
+    <script src="/script/auth.js"></script>
+    <script src="/script/cart.js"></script>
+    <script src="/script/function.js"></script>
+    <script>
+        function initCartPage() {
+            if (!window.cartManager) {
+                setTimeout(initCartPage, 100);
+                return;
+            }
+
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartSummary = document.getElementById('cart-summary');
+            const clearCartBtn = document.getElementById('clear-cart-btn');
+            const continueOrderBtn = document.getElementById('continue-order-btn');
+
+            displayCartItems();
+
+            if (clearCartBtn) {
+                clearCartBtn.addEventListener('click', function() {
+                    if (confirm('Apakah Anda yakin ingin menghapus semua item dari keranjang?')) {
+                        cartManager.clearCart();
+                        displayCartItems();
+                    }
+                });
+            }
+
+            if (continueOrderBtn) {
+                continueOrderBtn.addEventListener('click', function() {
+                    if (cartManager.getCart().length === 0) {
+                        alert('Keranjang kosong. Tambahkan produk terlebih dahulu.');
+                        return;
+                    }
+                    window.location.href = '/pages/order';
+                });
+            }
+
+            function displayCartItems() {
+                const cart = cartManager.getCart();
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '';
+                    emptyCartMessage.style.display = 'block';
+                    cartSummary.style.display = 'none';
+                    return;
+                }
+
+                emptyCartMessage.style.display = 'none';
+                cartSummary.style.display = 'block';
+
+                let html = '<div class="cart-table">';
+                html += '<div class="cart-header">';
+                html += '<div class="col-product">Produk</div>';
+                html += '<div class="col-price">Harga</div>';
+                html += '<div class="col-qty">Jumlah</div>';
+                html += '<div class="col-subtotal">Subtotal</div>';
+                html += '<div class="col-action">Aksi</div>';
+                html += '</div>';
+
+                let grandTotal = 0;
+                let totalItems = 0;
+
+                cart.forEach(function(item) {
+                    const subtotal = item.harga * item.qty;
+                    grandTotal += subtotal;
+                    totalItems += item.qty;
+
+                    html += '<div class="cart-row" data-id="' + item.id + '">';
+                    html += '<div class="col-product">';
+                    html += '<p class="product-name">' + item.nama + '</p>';
+                    html += '</div>';
+                    html += '<div class="col-price">';
+                    html += '<span>' + cartManager.formatPrice(item.harga) + '</span>';
+                    html += '</div>';
+                    html += '<div class="col-qty">';
+                    html += '<div class="qty-control">';
+                    html += '<button type="button" class="qty-btn qty-minus" data-id="' + item.id + '">−</button>';
+                    html += '<input type="number" class="qty-input" value="' + item.qty + '" data-id="' + item.id + '" min="1">';
+                    html += '<button type="button" class="qty-btn qty-plus" data-id="' + item.id + '">+</button>';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '<div class="col-subtotal">';
+                    html += '<strong>' + cartManager.formatPrice(subtotal) + '</strong>';
+                    html += '</div>';
+                    html += '<div class="col-action">';
+                    html += '<button type="button" class="btn-remove" data-id="' + item.id + '">🗑️ Hapus</button>';
+                    html += '</div>';
+                    html += '</div>';
+                });
+
+                html += '</div>';
+                cartItemsContainer.innerHTML = html;
+
+                document.getElementById('total-items').textContent = totalItems;
+                document.getElementById('subtotal').textContent = cartManager.formatPrice(grandTotal);
+                document.getElementById('total-price').textContent = cartManager.formatPrice(grandTotal);
+
+                attachEventListeners();
+            }
+
+            function attachEventListeners() {
+                document.querySelectorAll('.qty-plus').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.dataset.id);
+                        const input = document.querySelector('.qty-input[data-id="' + id + '"]');
+                        const newQty = parseInt(input.value) + 1;
+                        cartManager.updateQuantity(id, newQty);
+                        displayCartItems();
+                    });
+                });
+
+                document.querySelectorAll('.qty-minus').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.dataset.id);
+                        const input = document.querySelector('.qty-input[data-id="' + id + '"]');
+                        const newQty = parseInt(input.value) - 1;
+
+                        if (newQty < 1) {
+                            if (confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
+                                cartManager.removeProduct(id);
+                                displayCartItems();
+                            }
+                        } else {
+                            cartManager.updateQuantity(id, newQty);
+                            displayCartItems();
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.qty-input').forEach(function(input) {
+                    input.addEventListener('change', function() {
+                        const id = parseInt(this.dataset.id);
+                        let newQty = parseInt(this.value);
+                        if (isNaN(newQty) || newQty < 1) {
+                            newQty = 1;
+                        }
+                        cartManager.updateQuantity(id, newQty);
+                        displayCartItems();
+                    });
+                });
+
+                document.querySelectorAll('.btn-remove').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.dataset.id);
+                        if (confirm('Hapus produk ini dari keranjang?')) {
+                            cartManager.removeProduct(id);
+                            displayCartItems();
+                        }
+                    });
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCartPage);
+    </script>
+
+    <div class="floating-contact">
+        <a href="https://wa.me/6283149466923?text=Halo%20saya%20ingin%20pesan%20Lunara%20Bakes" target="_blank" class="wa">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.instagram.com/lunarabakes1/" target="_blank" class="ig">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+</body>
+
+</html>

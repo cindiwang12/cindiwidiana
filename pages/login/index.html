@@ -4,41 +4,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Login - LUNARA BAKES</title>
     <link rel="stylesheet" href="/style/reset.css">
     <link rel="stylesheet" href="/style/main.css">
     <link rel="stylesheet" href="/style/component.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <div class="logo-icon">🌙</div>
+        <div class="logo-text">
+            <span class="brand-main">LUNARA</span>
+            <span class="brand-sub">Bakes</span>
+        </div>
+    </div>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="/">Home</a>
+        <a href="/pages/profile">Profile</a>
+        <a href="/pages/menu">Menu</a>
+
+        <span class="divider">|</span>
+        <a href="/pages/login/index.html" class="btn-login hide-desktop">Login</a>
+        <a href="/pages/sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
+    </nav>
+
+    <div class="auth">
+        <a href="/pages/login/index.html" class="btn-outline">Login</a>
+        <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
+        
+        <!-- Cart Icon -->
+            <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">☰</div>
+</header>
 
 <main>
     <section class="auth-section">
-
         <div class="auth-card">
-            <h2>Login Akun</h2>
+            <h2>🔐 Login Akun</h2>
+            <p class="auth-subtitle">Selamat datang kembali di Lunara Bakes</p>
     
             <form id="loginForm">
-    
-                <label>Email</label>
-                <input type="email" id="loginEmail" placeholder="Masukkan email" required>
-    
-                <label>Password</label>
-                <input type="password" id="loginPassword" placeholder="Masukkan password" required>
-    
-                <button type="submit">Login</button>
-    
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Masukkan email" required>
+                    <small id="emailError" style="color: #c06c84; display: none;"></small>
+                </div>
+        
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+                    <small id="passwordError" style="color: #c06c84; display: none;"></small>
+                </div>
+        
+                <button type="submit" class="btn-login-submit">Login</button>
             </form>
-    
+        
             <p class="auth-link">
-                Belum punya akun? <a href="signup.html">Daftar</a>
+                Belum punya akun? <a href="/pages/sign up/index.html" style="color: #c06c84; font-weight: 600;">Daftar di sini</a>
+            </p>
+
+            <p class="auth-link" style="text-align: center; margin-top: 20px;">
+                <a href="/" style="color: #999; font-size: 13px;">← Kembali ke home</a>
             </p>
         </div>
-    
     </section>
 </main>
 
+<script src="/script/auth.js"></script>
+<script src="/script/cart.js"></script>
 <script src="/script/function.js"></script>
+<script>
+// Tunggu semua script sudah load
+function initLoginForm() {
+    const loginForm = document.getElementById('loginForm');
+
+    if (!loginForm) {
+        console.error('Form login tidak ditemukan');
+        return;
+    }
+
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Pastikan authManager tersedia
+        if (!window.authManager) {
+            console.error('authManager belum tersedia');
+            alert('Terjadi kesalahan, silakan refresh halaman');
+            return;
+        }
+
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+
+        // Validasi
+        if (!email || !password) {
+            window.authManager.showNotification('Email dan password harus diisi!', 'error');
+            return;
+        }
+
+        // Login
+        const result = window.authManager.login(email, password);
+
+        console.log('Login result:', result);
+
+        if (result.success) {
+            window.authManager.showNotification('✓ Login berhasil! Mengarahkan ke home...', 'success');
+            
+            // Redirect ke home setelah 1.5 detik
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1500);
+        } else {
+            window.authManager.showNotification(result.message, 'error');
+        }
+    });
+}
+
+// Jalankan saat DOM siap
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLoginForm);
+} else {
+    initLoginForm();
+}
+
+// Update auth status setelah script load
+setTimeout(() => {
+    if (window.authManager) {
+        window.authManager.updateAuthStatus();
+    }
+}, 100);
+</script>
+
 </body>
 
 </html>

@@ -31,13 +31,19 @@
             <a href="/pages/order">Order</a>
 
             <span class="divider">|</span>
-            <a href="#" class="btn-login hide-desktop">Login</a>
-            <a href="#" class="btn-signup hide-desktop">Sign Up</a>
+            <a href="../login/index.html" class="btn-login hide-desktop">Login</a>
+            <a href="../sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
         </nav>
 
         <div class="auth">
-            <a href="#" class="btn-outline">Login</a>
-            <a href="#" class="btn-primary">Sign Up</a>
+            <a href="/pages/login/index.html" class="btn-outline">Login</a>
+            <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
+            
+            <!-- Cart Icon -->
+            <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count-navbar" class="cart-count">0</span>
+            </a>
         </div>
 
         <!-- Hamburger -->
@@ -45,44 +51,51 @@
 
     </header>
     <main>
-
-        <!-- <h2>Keranjang 🛒</h2>
-        <div id="cart-container"></div>
-        <p id="cart-total"></p>
-        <button id="checkoutBtn">Checkout via WhatsApp</button> -->
-
         <section class="order-section">
-            <div class="order-card">
-                <h2>Form Pemesanan</h2>
+            <div class="order-container">
+                <div class="order-note">
+                    <p>Silakan isi data pemesan di bawah ini. Jika keranjang kosong, buka tombol keranjang untuk menambahkan item terlebih dahulu.</p>
+                </div>
 
-                <form id="orderForm">
-                    <label>Nama Lengkap</label>
-                    <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+                <div class="checkout-section" id="checkout-section">
+                    <div id="order-cart-info" class="order-cart-info"></div>
+                    <div id="order-notice" class="order-notice">Pastikan barang sudah ditambahkan ke keranjang.</div>
 
-                    <label>Nomor WhatsApp</label>
-                    <input type="text" placeholder="08xxxxxxxxxx">
+                    <h2>📋 Data Pemesan</h2>
+                    
+                    <form id="checkoutForm" class="checkout-form">
+                        <div class="form-group">
+                            <label for="customer-name">Nama Lengkap *</label>
+                            <input type="text" id="customer-name" placeholder="Masukkan nama lengkap Anda" required>
+                        </div>
 
-                    <label>Pilih Produk</label>
-                    <select>
-                        <option>Chocolate Cookies</option>
-                        <option>Cookies</option>
-                        <option>Kastengel</option>
-                        <option>Nastar</option>
-                        <option>Putri Salju</option>
-                        <option>Kue Kacang</option>
-                        <option>Moon Mini</option>
-                        <option>Golden Eid</option>
-                        <option>Royal Lunara</option>
-                    </select>
+                        <div class="form-group">
+                            <label for="customer-phone">Nomor WhatsApp *</label>
+                            <input type="tel" id="customer-phone" placeholder="08xxxxxxxxxx" required>
+                        </div>
 
-                    <label>Keterangan</label>
-                    <textarea rows="4"></textarea>
+                        <div class="form-group">
+                            <label for="customer-address">Alamat Pengiriman</label>
+                            <textarea id="customer-address" placeholder="Masukkan alamat lengkap (opsional)" rows="3"></textarea>
+                        </div>
 
-                    <button type="submit">Pesan Sekarang</button>
-                </form>
+                        <div class="form-group">
+                            <label for="customer-notes">Catatan Pesanan</label>
+                            <textarea id="customer-notes" placeholder="Contoh: Dengan atau tanpa kemasan khusus, preferensi khusus, dll" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="delivery-date">Tanggal Pengambilan/Pengiriman</label>
+                            <input type="date" id="delivery-date">
+                        </div>
+
+                        <button type="submit" class="btn-checkout">
+                            ✓ Checkout ke WhatsApp
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -136,7 +149,19 @@
 
     </footer>
 
+    <script src="/script/auth.js"></script>
+    <script src="/script/cart.js"></script>
+    <script src="/script/order.js"></script>
     <script src="/script/function.js"></script>
+
+    <script>
+        // Update auth status setelah script load
+        setTimeout(() => {
+            if (window.authManager) {
+                window.authManager.updateAuthStatus();
+            }
+        }, 100);
+    </script>
 
     <div class="floating-contact">
 

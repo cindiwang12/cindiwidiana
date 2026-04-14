@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page Test - LUNARA BAKES</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Mobile test indicator */
+        @media (max-width: 768px) {
+            body::before {
+                content: "📱 MOBILE VIEW";
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #c06c84;
+                color: white;
+                text-align: center;
+                padding: 5px;
+                font-size: 12px;
+                z-index: 1000;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">🌙</div>
+            <div class="logo-text">
+                <span class="brand-main">LUNARA</span>
+                <span class="brand-sub">Bakes</span>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <a href="/">Home</a>
+            <a href="/pages/menu">Menu</a>
+            <a href="/pages/order">Order</a>
+        </nav>
+        <div class="auth">
+            <a href="/pages/cart" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">2</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-page-section">
+            <div class="cart-page-container">
+                <div class="cart-section">
+                    <h2>🛒 Keranjang Belanja</h2>
+
+                    <!-- Sample cart items -->
+                    <div class="cart-table">
+                        <div class="cart-header">
+                            <div>Produk</div>
+                            <div>Harga</div>
+                            <div>Jumlah</div>
+                            <div>Subtotal</div>
+                            <div>Aksi</div>
+                        </div>
+
+                        <div class="cart-row">
+                            <div class="col-product">
+                                <h4 class="product-name">Cookies Coklat Premium</h4>
+                            </div>
+                            <div class="col-price">Rp 25,000</div>
+                            <div class="col-qty">
+                                <div class="qty-control">
+                                    <button class="qty-btn">-</button>
+                                    <input type="number" class="qty-input" value="2" min="1">
+                                    <button class="qty-btn">+</button>
+                                </div>
+                            </div>
+                            <div class="col-subtotal">Rp 50,000</div>
+                            <div class="col-action">
+                                <button class="btn-remove">🗑️</button>
+                            </div>
+                        </div>
+
+                        <div class="cart-row">
+                            <div class="col-product">
+                                <h4 class="product-name">Brownies Keju Special</h4>
+                            </div>
+                            <div class="col-price">Rp 35,000</div>
+                            <div class="col-qty">
+                                <div class="qty-control">
+                                    <button class="qty-btn">-</button>
+                                    <input type="number" class="qty-input" value="1" min="1">
+                                    <button class="qty-btn">+</button>
+                                </div>
+                            </div>
+                            <div class="col-subtotal">Rp 35,000</div>
+                            <div class="col-action">
+                                <button class="btn-remove">🗑️</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Total Item:</span>
+                            <span>3</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span>Rp 85,000</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>TOTAL PEMBAYARAN:</span>
+                            <span>Rp 85,000</span>
+                        </div>
+                        <div class="cart-actions">
+                            <button class="btn-secondary">Kosongkan Keranjang</button>
+                            <button class="btn-primary">Lanjut ke Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🌙 LUNARA BAKES</h3>
+                <p>Kue kering premium untuk momen spesial keluarga Anda.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script/script.js"></script>
+</body>
+</html>

@@ -26,18 +26,24 @@
 
             <nav class="nav-menu" id="navMenu">
                 <a href="/">Home</a>
-            <a href="/pages/profile">Profile</a>
-            <a href="/pages/menu">Menu</a>
-            <a href="/pages/order">Order</a>
+                <a href="/pages/profile">Profile</a>
+                <a href="/pages/menu">Menu</a>
+                <a href="/pages/order">Order</a>
 
-            <span class="divider">|</span>
-            <a href="#" class="btn-login hide-desktop">Login</a>
-            <a href="#" class="btn-signup hide-desktop">Sign Up</a>
+                <span class="divider">|</span>
+                <a href="../login/index.html" class="btn-login hide-desktop">Login</a>
+                <a href="../sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
             </nav>
 
             <div class="auth">
-                <a href="#" class="btn-outline">Login</a>
-                <a href="#" class="btn-primary">Sign Up</a>
+                <a href="/pages/login/index.html" class="btn-outline">Login</a>
+                <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
+                
+                <!-- Cart Icon -->
+                <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count-navbar" class="cart-count">0</span>
+                </a>
             </div>
 
         <!-- Hamburger -->
@@ -119,7 +125,18 @@
         
         </footer>
 
+        <script src="/script/auth.js"></script>
+        <script src="/script/cart.js"></script>
         <script src="/script/function.js"></script>
+
+        <script>
+            // Update auth status setelah script load
+            setTimeout(() => {
+                if (window.authManager) {
+                    window.authManager.updateAuthStatus();
+                }
+            }, 100);
+        </script>
 
         <div class="floating-contact">
 
