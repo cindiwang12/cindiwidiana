@@ -27,19 +27,25 @@
 
         <nav class="nav-menu" id="navMenu">
             <a href="/">Home</a>
-            <a href="pages/profile">Profile</a>
-            <a href="pages/menu">Menu</a>
-            <a href="pages/order">Order</a>
+            <a href="/pages/profile">Profile</a>
+            <a href="/pages/menu">Menu</a>
+            <a href="/pages/order">Order</a>
 
             <span class="divider">|</span>
-            <a href="pages/login/index.html" class="btn-login hide-desktop">Login</a>
-            <a href="pages/sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
+            <a href="/pages/login/index.html" class="btn-login hide-desktop">Login</a>
+            <a href="/pages/sign-up/index.html" class="btn-signup hide-desktop">Sign Up</a>
         </nav>
 
         <div class="auth">
-            <a href="pages/login/index.html" class="btn-outline">Login</a>
-            <a href="pages/sign up/index.html" class="btn-primary">Sign Up</a>
+            <a href="/pages/login/index.html" class="btn-outline">Login</a>
+            <a href="/pages/sign-up/index.html" class="btn-primary">Sign Up</a>
         </div>
+
+        <!-- Cart Icon - Always visible -->
+        <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count-navbar" class="cart-count">0</span>
+        </a>
 
         <!-- Hamburger -->
         <div class="hamburger" id="hamburger">☰</div>
@@ -51,15 +57,15 @@
             <h2 class="hero-title">Kue Lebaran Premium</h2>
             <h4>Homemade • Fresh • Elegan</h4>
             <div class="produk-image-wrapper"></div>
-            <img src="public/halaman utama/Image 2026-02-26 at 15.22.25.jpeg" alt="Foto Halaman utama"
+            <img src="public/halaman-utama/Image 2026-02-26 at 15.22.25.jpeg" alt="Foto Halaman utama"
                 class="produk-img" />
             <p>🌙 RAYAKAN IDUL FITRI DENGAN KEHANGATAN & KELEZATAN</p>
             <p>Hadirkan kebahagiaan dalam setiap momen bersama keluarga dengan kue kering premium dari Lunara Bakes.
                 Dibuat homemade dengan bahan pilihan, rasa autentik, dan sentuhan elegan untuk hari yang istimewa.</p>
 
             <div class="hero-buttons">
-                <a href="pages/menu" class="btn-hero-primary">Lihat Menu</a>
-                <a href="pages/order" class="btn-hero-secondary">Pesan Sekarang</a>
+                <a href="/pages/menu" class="btn-hero-primary">Lihat Menu</a>
+                <a href="/pages/order" class="btn-hero-secondary">Pesan Sekarang</a>
                 <button id="togglePromo" class="btn-hero-primary">Lihat Promo</button>
                 <p id="promoText" style="display:none;">
                     🎉 Promo Lebaran! Diskon 10% untuk pembelian Hampers.</p>
@@ -189,6 +195,11 @@
     <script src="script/function.js"></script>
 
     <script>
+        // Initialize cart manager if not already exists
+        if (!window.cartManager) {
+            window.cartManager = new CartManager();
+        }
+
         // Update auth status setelah script load
         setTimeout(() => {
             if (window.authManager) {

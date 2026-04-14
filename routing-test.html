@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Test - LUNARA BAKES</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Routing Test - Lunara Bakes</h1>
+    <p>Test apakah semua link navigation bekerja dengan benar.</p>
+
+    <div class="test-section">
+        <h3>Navigation Links Test</h3>
+        <button onclick="testLink('/pages/menu')">Menu Page</button>
+        <button onclick="testLink('/pages/cart')">Cart Page</button>
+        <button onclick="testLink('/pages/login/index.html')">Login Page</button>
+        <button onclick="testLink('/pages/sign-up/index.html')">Sign Up Page</button>
+        <button onclick="testLink('/pages/order')">Order Page</button>
+        <button onclick="testLink('/pages/profile')">Profile Page</button>
+    </div>
+
+    <div class="test-section">
+        <h3>Current Path Info</h3>
+        <p><strong>Current URL:</strong> <span id="current-url"></span></p>
+        <p><strong>Expected Base:</strong> http://localhost:5500 (Live Server) or http://localhost:8000 (Python server)</p>
+    </div>
+
+    <div class="test-section" id="result">
+        <h3>Test Results</h3>
+        <p>Click buttons above to test navigation...</p>
+    </div>
+
+    <script>
+        // Update current URL display
+        document.getElementById('current-url').textContent = window.location.href;
+
+        function testLink(path) {
+            const resultDiv = document.getElementById('result');
+
+            // Create test link
+            const testLink = document.createElement('a');
+            testLink.href = path;
+            testLink.target = '_blank';
+            testLink.textContent = `Testing: ${path}`;
+
+            // Add to result
+            resultDiv.innerHTML = '<h3>Test Results</h3>';
+            resultDiv.appendChild(testLink);
+            resultDiv.innerHTML += '<p>Link should open in new tab. If it shows "Cannot GET" error, routing is broken.</p>';
+            resultDiv.innerHTML += '<p><strong>Expected:</strong> Page loads successfully</p>';
+            resultDiv.innerHTML += '<p><strong>If Error:</strong> Check if server is running and paths are correct</p>';
+
+            // Auto-click to test
+            setTimeout(() => {
+                testLink.click();
+            }, 500);
+        }
+
+        // Test all links automatically
+        setTimeout(() => {
+            const paths = [
+                '/pages/menu',
+                '/pages/cart',
+                '/pages/login/index.html',
+                '/pages/sign-up/index.html'
+            ];
+
+            paths.forEach(path => {
+                const img = new Image();
+                img.onload = () => console.log(`✓ ${path} - OK`);
+                img.onerror = () => console.log(`✗ ${path} - FAILED`);
+                img.src = path + '?test=1';
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

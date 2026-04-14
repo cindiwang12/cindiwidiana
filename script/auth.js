@@ -173,31 +173,25 @@ class AuthManager {
         const currentUser = this.getCurrentUser();
         
         const authDiv = document.querySelector('.auth');
+        const cartIcon = document.getElementById('cartIcon');
+        
         if (!authDiv) {
             console.log('authDiv not found');
             return;
         }
         
         if (isLoggedIn && currentUser) {
-            // Ganti dengan nama user dan logout
+            // Ganti dengan nama user dan logout - TANPA cart icon
             authDiv.innerHTML = `
                 <span class="user-greeting">Halo, ${currentUser.nama}!</span>
                 <button class="btn-logout" onclick="authManager.logout()">Logout</button>
-                <a href="pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </a>
             `;
             console.log('User terlogin:', currentUser.nama);
         } else {
-            // Tampilkan login/signup buttons
+            // Tampilkan login/signup buttons - TANPA cart icon
             authDiv.innerHTML = `
-                <a href="pages/login/index.html" class="btn-outline">Login</a>
-                <a href="pages/sign up/index.html" class="btn-primary">Sign Up</a>
-                <a href="pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </a>
+                <a href="/pages/login/index.html" class="btn-outline">Login</a>
+                <a href="/pages/sign-up/index.html" class="btn-primary">Sign Up</a>
             `;
             console.log('User belum login');
         }

@@ -29,15 +29,20 @@
 
         <span class="divider">|</span>
         <a href="/pages/login/index.html" class="btn-login hide-desktop">Login</a>
-        <a href="/pages/sign up/index.html" class="btn-signup hide-desktop">Sign Up</a>
+        <a href="/pages/sign-up/index.html" class="btn-signup hide-desktop">Sign Up</a>
     </nav>
 
     <div class="auth">
         <a href="/pages/login/index.html" class="btn-outline">Login</a>
-        <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
-        
-        <!-- Cart Icon -->
-            <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+        <a href="/pages/sign-up/index.html" class="btn-primary">Sign Up</a>
+    </div>
+
+    <!-- Cart Icon - Always visible -->
+    <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count-navbar" class="cart-count">0</span>
+    </a>
+
     <!-- Hamburger -->
     <div class="hamburger" id="hamburger">☰</div>
 </header>
@@ -65,7 +70,7 @@
             </form>
         
             <p class="auth-link">
-                Belum punya akun? <a href="/pages/sign up/index.html" style="color: #c06c84; font-weight: 600;">Daftar di sini</a>
+                Belum punya akun? <a href="/pages/sign-up/index.html" style="color: #c06c84; font-weight: 600;">Daftar di sini</a>
             </p>
 
             <p class="auth-link" style="text-align: center; margin-top: 20px;">
@@ -134,6 +139,11 @@ if (document.readyState === 'loading') {
 
 // Update auth status setelah script load
 setTimeout(() => {
+    // Initialize cart manager if not already exists
+    if (!window.cartManager) {
+        window.cartManager = new CartManager();
+    }
+
     if (window.authManager) {
         window.authManager.updateAuthStatus();
     }

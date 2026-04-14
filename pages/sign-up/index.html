@@ -35,13 +35,11 @@
     <div class="auth">
         <a href="/pages/login/index.html" class="btn-outline">Login</a>
         <a href="/pages/sign-up/index.html" class="btn-primary">Sign Up</a>
+        <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count-navbar" class="cart-count">0</span>
+        </a>
     </div>
-
-    <!-- Cart Icon - Always visible -->
-    <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">0</span>
-    </a>
 
     <!-- Hamburger -->
     <div class="hamburger" id="hamburger">☰</div>
@@ -158,11 +156,6 @@ if (document.readyState === 'loading') {
 
 // Update auth status setelah script load
 setTimeout(() => {
-    // Initialize cart manager if not already exists
-    if (!window.cartManager) {
-        window.cartManager = new CartManager();
-    }
-
     if (window.authManager) {
         window.authManager.updateAuthStatus();
     }

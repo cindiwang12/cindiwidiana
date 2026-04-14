@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Navbar Test - LUNARA BAKES</title>
+    <title>Complete Mobile Test - LUNARA BAKES</title>
     <link rel="stylesheet" href="../style/reset.css">
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/component.css">
@@ -20,7 +20,7 @@
         }
 
         body::before {
-            content: "📱 MOBILE NAVBAR TEST (375px width)";
+            content: "📱 COMPLETE MOBILE TEST - Check: Cart Icon + Login/Signup in Menu";
             position: fixed;
             top: 0;
             left: 0;
@@ -29,7 +29,7 @@
             color: white;
             text-align: center;
             padding: 8px;
-            font-size: 12px;
+            font-size: 11px;
             z-index: 1000;
             font-weight: bold;
         }
@@ -39,7 +39,7 @@
         }
 
         .test-content {
-            padding: 100px 20px 50px;
+            padding: 120px 20px 50px;
             text-align: center;
         }
 
@@ -51,6 +51,29 @@
         .test-content p {
             color: #666;
             line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .test-instructions {
+            background: #f8e6e8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .test-instructions h3 {
+            color: #c06c84;
+            margin-bottom: 10px;
+        }
+
+        .test-instructions ul {
+            padding-left: 20px;
+        }
+
+        .test-instructions li {
+            margin-bottom: 8px;
+            color: #555;
         }
     </style>
 </head>
@@ -78,9 +101,9 @@
         <div class="auth">
             <a href="/pages/login/index.html" class="btn-outline">Login</a>
             <a href="/pages/sign up/index.html" class="btn-primary">Sign Up</a>
-            <a href="/pages/cart" class="cart-icon">
+            <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" style="display: flex;">5</span>
+                <span id="cart-count-navbar" class="cart-count">3</span>
             </a>
         </div>
 
@@ -89,10 +112,27 @@
 
     <main>
         <div class="test-content">
-            <h1>Test Halaman Mobile</h1>
-            <p>Ini adalah halaman test untuk memverifikasi bahwa cart icon dan hamburger menu tampil dengan benar di mode mobile.</p>
-            <p>Cart icon harus tampil di sebelah kiri hamburger menu dengan background pink transparan.</p>
-            <p>Jumlah item di cart ditampilkan sebagai badge merah di kanan atas cart icon.</p>
+            <h1>🧪 Mobile Navbar Test</h1>
+            <p>Test untuk memverifikasi bahwa semua elemen navbar mobile bekerja dengan benar.</p>
+
+            <div class="test-instructions">
+                <h3>✅ Yang Harus Terlihat:</h3>
+                <ul>
+                    <li><strong>Cart Icon:</strong> Ikon keranjang di sebelah kiri hamburger menu dengan badge angka</li>
+                    <li><strong>Hamburger Menu:</strong> Tombol ☰ di kanan atas</li>
+                    <li><strong>Login/Signup di Menu:</strong> Saat hamburger diklik, muncul menu dengan Login & Sign Up</li>
+                </ul>
+
+                <h3>🧪 Cara Test:</h3>
+                <ul>
+                    <li>Klik hamburger menu (☰) untuk membuka menu navigasi</li>
+                    <li>Periksa apakah Login dan Sign Up link berfungsi</li>
+                    <li>Periksa apakah Cart Icon terlihat dan dapat diklik</li>
+                    <li>Periksa apakah badge count (angka) terlihat pada cart icon</li>
+                </ul>
+            </div>
+
+            <p><strong>Status:</strong> Jika semua elemen terlihat dan berfungsi, maka perbaikan mobile navbar berhasil! 🎉</p>
         </div>
     </main>
 

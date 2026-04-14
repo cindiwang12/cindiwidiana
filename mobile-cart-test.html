@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Cart Test - LUNARA BAKES</title>
+    <link rel="stylesheet" href="/style/reset.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .test-info {
+            padding: 20px;
+            background: #f8d7da;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .mobile-simulator {
+            max-width: 375px;
+            margin: 0 auto;
+            border: 2px solid #c06c84;
+            border-radius: 20px;
+            padding: 10px;
+            background: white;
+        }
+        .mobile-simulator h3 {
+            text-align: center;
+            color: #c06c84;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2>🛒 Mobile Cart Icon Test</h2>
+        <p><strong>Instructions:</strong> Resize browser window to mobile size (< 768px) to see cart icon.</p>
+        <p><strong>Expected:</strong> Cart icon should appear as circular button next to hamburger menu.</p>
+    </div>
+
+    <div class="mobile-simulator">
+        <h3>Mobile View Simulator</h3>
+
+        <header class="navbar">
+            <div class="logo">
+                <div class="logo-icon">🌙</div>
+                <div class="logo-text">
+                    <span class="brand-main">LUNARA</span>
+                    <span class="brand-sub">Bakes</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="/">Home</a>
+                <a href="/pages/profile">Profile</a>
+                <a href="/pages/menu">Menu</a>
+                <a href="/pages/order">Order</a>
+
+                <span class="divider">|</span>
+                <a href="/pages/login/index.html" class="btn-login hide-desktop">Login</a>
+                <a href="/pages/sign-up/index.html" class="btn-signup hide-desktop">Sign Up</a>
+            </nav>
+
+            <div class="auth">
+                <a href="/pages/login/index.html" class="btn-outline">Login</a>
+                <a href="/pages/sign-up/index.html" class="btn-primary">Sign Up</a>
+                <a href="/pages/cart" class="cart-icon" id="cartIcon" title="Keranjang Belanja">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">☰</div>
+        </header>
+
+        <main style="padding: 20px; text-align: center;">
+            <h2>Test Content</h2>
+            <p>Resize browser to < 768px width to see mobile navbar.</p>
+            <p>Cart icon should appear as pink circular button next to hamburger (☰).</p>
+        </main>
+    </div>
+
+    <script src="/script/auth.js"></script>
+    <script src="/script/cart.js"></script>
+    <script src="/script/function.js"></script>
+
+    <script>
+        // Test cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Mobile cart test loaded');
+
+            // Test cart manager
+            setTimeout(() => {
+                if (window.cartManager) {
+                    console.log('Cart manager ready');
+                    window.cartManager.updateCartDisplay();
+                } else {
+                    console.log('Cart manager not ready');
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
