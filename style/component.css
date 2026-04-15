@@ -81,6 +81,9 @@
 .nav-menu {
     display: flex;
     gap: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-menu a {
@@ -118,6 +121,7 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    margin-left: auto;
 }
 
 .btn-outline {
